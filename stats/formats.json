@@ -1,0 +1,25 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": {
+    "url": "https://offenedaten.de/api/3/action/package_search?facet.field=[%22res_format%22]&facet.limit=100&rows=0",
+    "format": {
+      "type": "json",
+      "property": "result.search_facets.res_format.items"
+    }
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "name",
+      "type": "ordinal",
+      "sort": {
+        "op": "sum",
+        "field": "count"
+      }
+    },
+    "x": {
+      "field": "count",
+      "type": "quantitative"
+    }
+  }
+}
